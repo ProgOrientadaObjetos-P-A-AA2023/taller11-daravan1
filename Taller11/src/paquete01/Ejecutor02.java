@@ -44,7 +44,7 @@ public class Ejecutor02 {
         Iterar y crear los objetos según corresponda. Cada objeto generado, 
         agregar al ArrayList lista*/
         // Inicio de solución
-        
+    
         // Fin de solución
         
         

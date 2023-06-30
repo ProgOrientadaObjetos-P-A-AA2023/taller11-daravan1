@@ -11,11 +11,12 @@ package paquete01;
 public abstract class Menu {
 
     protected String nombrePlato;
+    protected double valorInicial;
     protected double valorMenu;
 
-    public Menu(String plato, double valorM) {
+    public Menu(String plato, double valorIn) {
         nombrePlato = plato;
-        valorMenu = valorM;
+        valorInicial = valorIn;
     }
 
     public abstract double calcularSubtotal();
@@ -24,25 +25,26 @@ public abstract class Menu {
         nombrePlato = n;
     }
 
-    public void establecerValorMenu(double n) {
-        valorMenu = n;
+    public void establecerValorInicial(double n) {
+        valorInicial = n;
     }
 
-    public double obtenerValorMenu() {
-        return valorMenu;
+    public double obtenerValorInicial() {
+        return valorInicial;
     }
 
     public String obtenerNombrePlato() {
         return nombrePlato;
     }
+    
 
     @Override
     public String toString() {
 
         String cadena = String.format("Nombre del plato: %s\n"
-                + "\tValor del menú:  %.2f\n",
+                + "\tValor inicial:  %.2f\n",
                 obtenerNombrePlato(),
-                obtenerValorMenu());
+                obtenerValorInicial());
         return cadena;
     }
 }

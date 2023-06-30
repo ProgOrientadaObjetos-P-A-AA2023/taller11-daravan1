@@ -10,22 +10,16 @@ package paquete01;
  */
 public class MenuCarta extends Menu {
 
-    private double valorInicial;
     private double valorGuarnicion;
     private double valorBebida;
     private double porcentajeServicio;
 
-    public MenuCarta(String plato, double valorM, double valorIni, double valorGuar,
+    public MenuCarta(String plato, double valorIni, double valorGuar,
             double valorBe, double servicio) {
-        super(plato, valorM);
-        valorInicial = valorIni;
+        super(plato, valorIni);
         valorGuarnicion = valorGuar;
         valorBebida = valorBe;
         porcentajeServicio = servicio;
-    }
-
-    public void establecerInicial(double n) {
-        valorInicial = n;
     }
 
     public void establecerGuarnicion(double n) {
@@ -36,9 +30,6 @@ public class MenuCarta extends Menu {
         valorBebida = n;
     }
 
-    public double obtenerValorInicial() {
-        return valorInicial;
-    }
     public double obtenerGuarnicion() {
         return valorGuarnicion;
     }
@@ -59,15 +50,15 @@ public class MenuCarta extends Menu {
     public String toString() {
         String cadenaFinal = String.format("%s", super.toString());
         cadenaFinal = String.format("%s"
-                + "\tValor inicial: %.2f\n"
                 + "\tValor guarnición: %.2f\n"
                 + "\tValor bebida: %.2f\n"
-                + "\tPorcentaje Adicional: %.2f\n",
+                + "\tPorcentaje Adicional: %.2f\n"
+                +"\tValor del menu: %.2f\n",
                 cadenaFinal,
-                obtenerValorInicial(),
                 obtenerGuarnicion(),
                 obtenerBebida(),
-                calcularPorcentajeServicio());
+                calcularPorcentajeServicio(),
+                calcularSubtotal());
         return cadenaFinal;
     }
 

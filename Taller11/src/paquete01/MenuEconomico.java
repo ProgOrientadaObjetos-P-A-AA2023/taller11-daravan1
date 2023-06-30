@@ -9,13 +9,12 @@ package paquete01;
  * @author darav
  */
 public class MenuEconomico extends Menu {
-
-    private double valorInicial;
+    
     private double porcentajeDescuento;
 
-    public MenuEconomico(String plato, double valorM, double valorIni, double descuento) {
-        super(plato, valorM);
-        valorInicial = valorIni;
+    public MenuEconomico(String plato, double valorIni, double descuento) {
+        super(plato, valorIni);
+
         porcentajeDescuento = descuento;
     }
 
@@ -25,10 +24,6 @@ public class MenuEconomico extends Menu {
 
     public double calcularPorcentajeDescuento() {
         return porcentajeDescuento = porcentajeDescuento / 100;
-    }
-
-    public double obtenerValorInicial() {
-        return valorInicial;
     }
 
 
@@ -41,11 +36,11 @@ public class MenuEconomico extends Menu {
     public String toString() {
         String cadenaFinal = String.format("%s", super.toString());
         cadenaFinal = String.format("%s"
-                + "\tValor inicial: %.2f\n"
-                + "\tPorcentaje Descuento: %.2f\n",
+                + "\tPorcentaje Descuento: %.2f\n"
+                +"\tValor del menu: %.2f\n",
                 cadenaFinal,
-                obtenerValorInicial(),
-                calcularPorcentajeDescuento());
+                calcularPorcentajeDescuento(),
+                calcularSubtotal());
         return cadenaFinal;
     }
 }

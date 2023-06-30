@@ -10,32 +10,22 @@ package paquete01;
  */
 public class MenuDia extends Menu {
 
-    private double valorInicial;
     private double valorPostre;
     private double valorBebida;
 
-    public MenuDia(String plato, double valorM, double valorIni, double valorPos,
+    public MenuDia(String plato, double valorIni, double valorPos,
             double valorBe) {
-        super(plato, valorM);
-        valorInicial = valorIni;
+        super(plato, valorIni);
         valorPostre = valorPos;
         valorBebida = valorBe;
     }
-
-    public void establecerValorInicial(double n) {
-        valorInicial = n;
-    }
-
+    
     public void establecerBebida(double n) {
         valorBebida = n;
     }
 
     public void establecerPostre(double n) {
         valorPostre = n;
-    }
-
-    public double obtenerValorInicial() {
-        return valorInicial;
     }
 
     public double obtenerBebida() {
@@ -55,13 +45,13 @@ public class MenuDia extends Menu {
     public String toString() {
         String cadenaFinal = String.format("%s", super.toString());
         cadenaFinal = String.format("%s"
-                + "\tValor inicial: %.2f\n"
                 + "\tValor bebida: %.2f\n"
-                + "\tValor postre: %.2f\n",
+                + "\tValor postre: %.2f\n"
+                +"\tValor del menu: %.2f\n",
                 cadenaFinal,
-                obtenerValorInicial(),
                 obtenerBebida(),
-                obtenerPostre());
+                obtenerPostre(),
+                calcularSubtotal());
         return cadenaFinal;
     }
 }

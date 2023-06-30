@@ -9,20 +9,15 @@ package paquete01;
  * @author darav
  */
 public class MenuNinios extends Menu {
-    private double valorInicial;
     private double valorHelado;
     private double valorPastel;
 
-    public MenuNinios(String plato, double valorM, double valorIni, double valorHel,
+    public MenuNinios(String plato, double valorIni, double valorHel,
                      double valorPas) {
-        super(plato, valorM);
-        valorInicial = valorIni;
+        super(plato, valorIni);
+
         valorHelado = valorHel;
         valorPastel = valorPas;
-    }
-
-    public void establecerValorInicial(double n) {
-        valorInicial = n;
     }
     public void establecerrHelado(double n) {
         valorHelado = n;
@@ -31,9 +26,6 @@ public class MenuNinios extends Menu {
         valorPastel = n;
     }
     
-    public double obtenerValorInicial() {
-        return valorInicial;
-    }
     public double obtenerHelado() {
         return valorHelado;
     }
@@ -50,13 +42,13 @@ public class MenuNinios extends Menu {
     public String toString() {
         String cadenaFinal = String.format("%s", super.toString());
         cadenaFinal = String.format("%s"
-                + "\tValor inicial: %.2f\n"
                 + "\tValor helado: %.2f\n"
-                + "\tValor pastel: %.2f\n",
+                + "\tValor pastel: %.2f\n"
+                 +"\tValor del menu: %.2f\n",
                 cadenaFinal,
-                obtenerValorInicial(),
                 obtenerHelado(),
-                obtenerPastel());
+                obtenerPastel(),
+                calcularSubtotal());
         return cadenaFinal;
     }
 }

@@ -17,10 +17,10 @@ public class Cuenta {
     private ArrayList<Menu> menus;
     private double total;
 
-    public Cuenta(String c, double i) {
+    public Cuenta(String c, ArrayList<Menu> me, double i) {
         cliente = c;
         iva = i;
-        menus = new ArrayList<>();
+        menus = me;
         total = 0;
     }
 
@@ -35,26 +35,24 @@ public class Cuenta {
     public String obtenerCliente() {
         return cliente;
     }
+    public double obtenerIva() {
+        return iva;
+    }
 
-    public void agregarMenu(Menu menu) {
-        menus.add(menu);
-        total += menu.calcularSubtotal();
+    public void establecerLista(ArrayList<Menu> lista) {
+        menus = lista;
     }
 
     public double calcularSubtotal() {
-        double subtotal = 0.0;
+        double subtotal = 0;
         for (Menu menu : menus) {
-            subtotal += menu.calcularSubtotal();
+            subtotal = subtotal + menu.calcularSubtotal();
         }
         return subtotal;
     }
 
-    public double calcularIVA() {
-        return calcularSubtotal() * (iva/100);
-    }
-
     public double calcularValorTotal() {
-        return calcularSubtotal() + calcularIVA();
+        return calcularSubtotal() + calcularSubtotal()*(iva / 100);
     }
 
     @Override
@@ -71,7 +69,7 @@ public class Cuenta {
                 + "IVA: %.2f\n"
                 + "Total a pagar: %.2f\n",
                 calcularSubtotal(),
-                calcularIVA(),
+                obtenerIva(),
                 calcularValorTotal());
         return cadena;
     }
